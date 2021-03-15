@@ -1,0 +1,42 @@
+<heder>
+  <h1>Books</h1>
+</heder>
+
+<main>
+  <table>
+    <thead>
+      <tr>
+        <th width="120px">Title</th>
+        <th width="360px">Body</th>
+        <th width="60px"></th>
+        <th width="60px"></th>
+        <th width="60px"></th>
+      </tr>
+     </thead>
+     <tbody>
+       <% @books.each do |book| %>
+       <tr>
+         <td><%= book.title %></td>
+         <td><%= book.body %></td>
+         <td><%= link_to "Show", "/books/#{book.id}" %></td>
+         <td><%= link_to "Edit", "/books/#{book.id}/edit" %></td>
+         <td><%= link_to "Destroy","/books/#{book.id}", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+        </tr>
+    
+       <% end %>
+     </tbody>
+  </table>
+</main>
+
+<h1>New book</h1>
+<%= form_with model:@book, local:true do |f| %>
+
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+
+  <%= f.submit 'Create Book' %>
+
+<% end %>
