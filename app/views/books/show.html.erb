@@ -1,9 +1,11 @@
-<%= notice %>
-<h3>Title：</h3>
-<%= @book.title %>
+<h3><%= notice %></h3>
+<p>
+  <b>Title：</b><%= @book.title %>
+</p>
 
-<h3>Body:</h3>
-<%= @book.body %>
+<p>
+  <b>Body:</b><%= @book.body %>
+</p>
 
 <%= link_to "Edit", edit_books_path(@book) %>
-<%= link_to "Back","/books/new" %>
+<%= link_to "Back","/books/new" %> 
